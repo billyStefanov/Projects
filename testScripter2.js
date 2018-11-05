@@ -2,6 +2,7 @@ const KEY_CODE_LEFT = 37;
 const KEY_CODE_RIGHT = 39;
 const KEY_CODE_SPACE = 32;
 const KEY_CODE_UP = 38;
+const KEY_CODE_DOWN = 40;
 
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
@@ -22,7 +23,8 @@ const GAME_STATE = {
   leftPressed: false,
   rightPressed: false,
   spacePressed: false,
-  upPressed:false,
+  upPressed: false,
+  downPressed: false,
   playerX: 0,
   playerY: 0,
   playerCooldown: 0,
@@ -85,6 +87,9 @@ function updatePlayer(dt, $container) {
   }
   if (GAME_STATE.upPressed) {
     LASER_COOLDOWN-=0.1;
+  }
+  if (GAME_STATE.downPressed) {
+    LASER_COOLDOWN+=0.1;
   }
 
   GAME_STATE.playerX = clamp(
@@ -268,6 +273,8 @@ function onKeyDown(e) {
     GAME_STATE.spacePressed = true;
   } else if (e.keyCode === KEY_CODE_UP) {
     GAME_STATE.upPressed = true;
+  } else if (e.keyCode === KEY_CODE_DOWN) {
+    GAME_STATE.downPressed = true;
   }
 }
 
@@ -280,6 +287,8 @@ function onKeyUp(e) {
     GAME_STATE.spacePressed = false;
   } else if (e.keyCode === KEY_CODE_UP) {
     GAME_STATE.upPressed = false;
+  } else if (e.keyCode === KEY_CODE_DOWN) {
+    GAME_STATE.downPressed = false;
   }
 }
 
