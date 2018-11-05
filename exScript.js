@@ -1,26 +1,38 @@
-var canvas = document.getElementById('space_box');
+var canvas = document.getElementById('space');
 var c = canvas.getContext('2d');
 
 var innerWidth = window.innerWidth - 20;
 var innerHeight = window.innerHeight - 20;
-var radius = 2;
+var radius = 1;
 var starsIndex = 0;
 var stars = [];
 var piSq = Math.PI*2;
 var centerX = innerWidth/2;
 var centerY = innerHeight/2;
-var centerLength = 700;
+var centerLength = 600;
 var starRadius = null;
 var starX = null;
 var starY = null;
-var numStars = 400;
+var numStars = 900;
+var mouse = {};
+var starX_dir = 0;
+var starY_dir = 0;
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 	
 	
 // Местенето на звездите според движенията на мишката
-
+window.addEventListener('mousemove', function(e){
+	mouse.x = e.x;
+	
+	if(mouse.x < centerX){
+	  starX_dir += 10;
+	}else{
+	  starX_dir += -10;
+	}
+	
+ });
 	
 // Function за "генериране" на нови звезди
 function star(x,y,z){
@@ -43,7 +55,8 @@ function star(x,y,z){
 	  
 	  starRadius = radius * (centerLength / this.z);
 	  
-	  
+	  starX += starX_dir;
+	  starY += starY_dir;
 	  
 	  this.z += -10;
 	  
