@@ -1,0 +1,121 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: rgb(42, 160, 160);
+  font: 16px sans-serif;
+}
+
+.game {
+  width: 800px;
+  height: 600px;
+  background: url(png-files/background-dark-purple.png);
+  animation: scroll-background 5s linear infinite;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 560px;
+  top: 150px;
+}
+
+@keyframes scroll-background {
+  from {
+    background-position-y: 0px;
+  }
+  to {
+    background-position-y: 256px;
+  }
+}
+
+.game .enemy {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: -18px;
+  width: 30px;
+}
+
+.game .player {
+  position: absolute;
+  margin-left: -20px;
+  width: 35px;
+}
+
+.game .laser {
+  position: absolute;
+  margin-left: -2.5px;
+  height: 20px;
+}
+
+.game .enemy-laser {
+  position: absolute;
+  margin-left: -2.5px;
+  height: 20px;
+}
+
+.congratulations {
+  margin: auto;
+  display: none;
+  position: absolute;
+  left: 669px;
+  top: 250px;
+  background: #F7D51D;
+  color: #4AA52E;
+  padding: 20px 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  animation: pop-in 1s;
+  font: 15px 'Billy';
+}
+
+#win {
+  background: #4AA52E;
+  text-align: center;
+  display: inline-block;
+  padding: 20px;
+  font: 24px 'Billy', cursive;
+  color: #F7D51D;
+}
+
+.game-over {
+  display: none;
+  position: absolute;
+  left: 730px;
+  top: 250px;
+  background: #18171a;
+  color: #E76E55;
+  padding: 20px 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  text-align: center;
+  animation: pop-in 1s;
+  font: 20px 'Billy';
+}
+
+#lose {
+  background: #E76E55;
+  text-align: center;
+  display: inline-block;
+  padding: 20px;
+  font: 24px 'Billy', cursive;
+}
+
+@font-face {
+  font-family: 'Billy';
+  src: url('PressStart2P.ttf') format('truetype');
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(0, 30px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

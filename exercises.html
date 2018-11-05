@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<title>Billy's Space Arcade Demo</title>
+</head>
+<body>
+<div>Select Game</div>
+<button id="button1" type="button" onclick="window.location.href='SnakeTest1.html'">Play Snake<br/>Game!</button>
+<button id="button2" type="button" onclick="window.location.href='testinger1.html'">Play Space<br/>Invaders!</button>
+<canvas id="space_box" style="background:#000;"></canvas>
+<script type="text/javascript" src="exScript.js"></script>
+
+
+<style>
+@font-face {
+  font-family: 'Billy';
+  src: url('PressStart2P.ttf') format('truetype');
+}
+
+body {
+  background-color: #000;
+}
+
+#button1:hover{
+  background-color: red;
+}
+
+#button2:hover{
+  background-color: red;
+}
+
+@keyframes condemned_blink_effect {
+    0% {
+        visibility: hidden;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+div {
+  position: absolute;
+  bottom: 15%;
+  left: 32%;
+  font-family: 'Billy';
+  color:rgb(131, 177, 236);
+  font-size: 65px;
+  animation: 1s linear infinite condemned_blink_effect;
+}
+
+#button1 {
+  position:absolute;
+  left: 18%;
+  top: 40%;
+  background-color: rgb(131, 177, 236);
+  padding: 55px 45px;
+  font-size: 24px;
+  cursor: pointer;
+  font-family: 'Billy';
+  border: 4px solid rgb(112, 131, 148);
+}
+
+#button2 {
+  position:absolute;
+  right: 18%;
+  top: 40%;
+  background-color:rgb(131, 177, 236);
+  padding: 55px 45px;
+  font-size: 24px;
+  cursor: pointer;
+  font-family: 'Billy';
+  border: 4px solid rgb(102, 131, 148);
+}
+
+</style>
+
+</body>
+</html>
