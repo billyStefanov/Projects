@@ -31,11 +31,11 @@ function game() {
     if(py>tc-1) {
         py= 0;
     }
-    
+    const colors = ["blue", "red", "yellow", "purple", "pink","grey","cyan"];
     ctx.fillStyle="#bfff80";
     ctx.fillRect(0,0,canv.width,canv.height);
  
-    ctx.fillStyle="darkgrey";
+    ctx.fillStyle= colors[Math.floor(Math.random() * colors.length)];
     for(var i=0;i<trail.length;i++) {
         ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
         if(trail[i].x==px && trail[i].y==py) {
@@ -59,9 +59,9 @@ function game() {
     }
 
     // Произволен избор на цветове за плодчето - нещо не е наред...
-        const colors = ["blue", "red", "yellow", "purple", "pink","grey","cyan"];
+        
 
-        ctx.fillStyle=colors[Math.floor(Math.random() * colors.length)];
+        ctx.fillStyle= "darkgrey";
         ctx.fillRect(ax*gs,ay*gs,gs-2 ,gs-2);
 }
 
