@@ -22,20 +22,21 @@ canvas.width = innerWidth;
 canvas.height = innerHeight;
 	
 	
-// Местенето на звездите според движенията на мишката
+// Moving the stars according to the mouse's movements
 window.addEventListener('mousemove', function(e){
 	mouse.x = e.x;
 	
-	if(mouse.x < centerX){
+	if (mouse.x < centerX){
 	  starX_dir += 10;
-	}else{
+	}
+	else {
 	  starX_dir += -10;
 	}
 	
  });
 	
-// Function за "генериране" на нови звезди
-function star(x,y,z){
+// Generating the new stars
+function star(x,y,z) {
     this.x = x;
 	this.y = y;
 	this.z = z;
@@ -45,8 +46,8 @@ function star(x,y,z){
 	stars[starsIndex] = this;
 	this.id = starsIndex;
 	
-	// Анимиране на звездите
-	this.update = function(){
+	// Animating the stars
+	this.update = function() {
 	  starX = (this.x - centerX) * (centerLength / this.z);
 	  starX += centerX;
 	  
@@ -68,7 +69,7 @@ function star(x,y,z){
 	
 	}
 	
-	// Function за рисуването на звездата
+	// Function for drawing stars
 	this.draw = function(){
 		c.beginPath();
 		c.arc(starX,starY,starRadius, piSq, false);
@@ -79,7 +80,7 @@ function star(x,y,z){
 	
 }	
 
-// X,Y,Z values настройване
+// Setting up the X,Y,Z values
 var s = 0;
 for(s = 0; s < numStars; s++){
 	x = Math.random() * innerWidth;
@@ -88,13 +89,13 @@ for(s = 0; s < numStars; s++){
 	new star(x,y,z);
 }
 
-// Function за самото анимиране
+// Function for the animation itself
 function animate(){
     requestAnimationFrame(animate);
 	c.fillStyle = "black";
 	c.fillRect(0,0,innerWidth,innerHeight);
 	
-	for( var i in stars){
+	for(var i in stars) {
 	  stars[i].update();
 	}
 }

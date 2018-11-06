@@ -2,16 +2,15 @@ window.onload=function() {
     canv=document.getElementById("field");
     ctx=canv.getContext("2d");
     document.addEventListener("keydown",keyPush);
-    setInterval(game,1000/15);
+    setInterval(game, 70);
 }
 
-px=py=10;
-gs=23.8;
-tc=38;
-ax=ay=15;
-xv=yv=0;
-tail;
-trail=[];
+var px=py=18;
+var gs=23.8;
+var tc=38;
+var ax=ay=25;
+var xv=yv=0;
+var trail=[];
 
 var tail = 4;
 var score = 0;
@@ -19,6 +18,7 @@ var score = 0;
 function game() {
     px+=xv;
     py+=yv;
+
     if(px<0) {
         px= tc-1;
     }
@@ -31,6 +31,7 @@ function game() {
     if(py>tc-1) {
         py= 0;
     }
+
     const colors = ["blue", "red", "yellow", "pink"];
     ctx.fillStyle ="#bfff80";
     ctx.fillRect(0,0,canv.width,canv.height);
@@ -46,11 +47,11 @@ function game() {
     }
     
     trail.push({x:px,y:py});
-    while(trail.length>tail) {
-    trail.shift();
+    while (trail.length>tail) {
+        trail.shift();
     }
  
-    if(ax==px && ay==py) {
+    if (ax==px && ay==py) {
         tail++;
         score+=10;
         document.getElementById("score").innerHTML = "Score:<br/>" + score;
@@ -63,7 +64,7 @@ function game() {
 }
 
 function keyPush(evt) {
-    switch(evt.keyCode) {
+    switch (evt.keyCode) {
         case 37:
             xv=-1;yv=0;
             break;
