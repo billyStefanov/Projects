@@ -32,7 +32,6 @@ function game() {
         py= 0;
     }
 
-    const colors = ["blue", "red", "yellow", "pink"];
     ctx.fillStyle ="#bfff80";
     ctx.fillRect(0,0,canv.width,canv.height);
  
