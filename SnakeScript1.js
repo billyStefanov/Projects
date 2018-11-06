@@ -2,7 +2,7 @@ window.onload=function() {
     canv=document.getElementById("field");
     ctx=canv.getContext("2d");
     document.addEventListener("keydown",keyPush);
-    setInterval(game, 70);
+    setInterval(game, 75);
 }
 
 var px=py=18;
