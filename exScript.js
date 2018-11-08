@@ -20,8 +20,7 @@ var starY_dir = 0;
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
-	
-	
+
 // Moving the stars according to the mouse's movements
 window.addEventListener('mousemove', function(e){
 	mouse.x = e.x;

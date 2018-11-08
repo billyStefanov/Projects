@@ -5,11 +5,11 @@ window.onload=function() {
     setInterval(game, 75);
 }
 
-var px=py=18;
-var gs=23.8;
-var tc=38;
-var ax=ay=25;
-var xv=yv=0;
+var px=py=18; // Player x and y velocity
+var gs=23.8; // Grid size
+var tc=38; // Tile count
+var ax=ay=25; // Fruit x and y velocity
+var xv=yv=0; // X and Y velocities
 var trail=[];
 
 var tail = 4;
@@ -38,19 +38,19 @@ function game() {
     ctx.fillStyle = "pink";
     for(var i=0;i<trail.length;i++) {
         ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
-        if(trail[i].x==px && trail[i].y==py) {
+        if(trail[i].x==px && trail[i].y==py) { // You restart if you eat your tail
             tail = 4;
             score = 0;
             document.getElementById("score").innerHTML = "Score:<br/>" + score;
         }
     }
     
-    trail.push({x:px,y:py});
+    trail.push({x:px,y:py}); // The trail can move
     while (trail.length>tail) {
         trail.shift();
     }
  
-    if (ax==px && ay==py) {
+    if (ax==px && ay==py) { // Eat a fruit and you grow
         tail++;
         score+=10;
         document.getElementById("score").innerHTML = "Score:<br/>" + score;
