@@ -89,7 +89,7 @@ for(s = 0; s < numStars; s++){
 	new star(x,y,z);
 }
 
-// Function for the animation itself
+// Function for the animation of the canvas objects
 function animate(){
     requestAnimationFrame(animate);
 	c.fillStyle = "black";
